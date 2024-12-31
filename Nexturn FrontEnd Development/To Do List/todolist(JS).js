@@ -1,9 +1,7 @@
-// When the page loads, load the tasks
 window.onload = function() {
     loadTasks();
 }
 
-// Add New Task :
 function addTask() {
     var taskText = document.getElementById("taskInput").value.trim();
     if (taskText === "") return;
@@ -53,7 +51,6 @@ function loadTasks() {
     document.getElementById("taskCount").textContent = "Pending tasks: " + pendingTasks;
 }
 
-// Delete a task
 function deleteTask(index) {
     var tasks = JSON.parse(localStorage.getItem("tasks"));
     tasks.splice(index, 1);
@@ -61,7 +58,6 @@ function deleteTask(index) {
     loadTasks();
 }
 
-// Toggle task
 function toggleComplete(index) {
     var tasks = JSON.parse(localStorage.getItem("tasks"));
     tasks[index].completed = !tasks[index].completed;
