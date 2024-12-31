@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url("https://media.istockphoto.com/id/1357021263/photo/indian-five-hundred-rupee-notes-in-a-sack-cloth.jpg?s=612x612&w=0&k=20&c=fAuu7xct-PL8YNtC5Ey36zzlWHCYYu7JOEK95pB9TFA=");
+    margin: 0;
+    padding: 0;
+}
+
+#expenseContainer {
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-image: url("https://i.pinimg.com/736x/38/cd/39/38cd3989b25d6f19de68028266273ac4.jpg");
+    background-size: cover;
+    background-position: center; 
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: black;
+}
+
+input, select, button {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    background-color: rgba(0, 0, 0, 0.6); 
+    border-radius: 8px;
+}
+
+table th, table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+table th {
+    background-color: rgba(255, 255, 255, 0.7); 
+    font-weight: bold;
+}
+
+table td {
+    background-color: rgba(255, 255, 255, 0.3); 
+}
+
+table td:hover {
+    background-color: rgba(255, 255, 255, 0.5); 
+}
+
+#categorySummary {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    font-weight: bold;
+    color: black;
+}
+
+@media (max-width: 600px) {
+    input, select, button {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    table, #categorySummary {
+        font-size: 14px;
+    }
+}

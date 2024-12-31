@@ -1,0 +1,56 @@
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url('https://t3.ftcdn.net/jpg/05/13/59/72/360_F_513597277_YYqrogAmgRR9ohwTUnOM784zS9eYUcSk.jpg'); 
+    background-size: cover;
+    background-position: center center; 
+    background-attachment: fixed; 
+    margin: 0;
+    padding: 0;
+}
+
+input, button {
+    padding: 10px;
+    margin: 10px;
+}
+
+ol {
+    padding-left: 0;
+}
+
+li {
+    margin: 5px;
+    padding: 10px;
+    background-color: rgba(225, 247, 213, 0.8); 
+    border-radius: 5px;
+    transition: background-color 0.3s, box-shadow 0.3s; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+}
+
+.completed {
+    text-decoration: line-through;
+    color: grey;
+}
+
+button {
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+button:hover {
+    background-color: darkred;
+}
+
+#taskContainer {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); 
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
