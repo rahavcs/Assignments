@@ -2,7 +2,6 @@ package models
 
 import "time"
 
-// Blog struct represents a blog post.
 type Blog struct {
 	ID        int       `json:"id"`
 	Title     string    `json:"title"`
