@@ -1,4 +1,3 @@
-// middlewares/middleware.go
 package middlewares
 
 import (
