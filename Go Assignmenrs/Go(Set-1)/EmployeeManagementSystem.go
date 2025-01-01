@@ -76,10 +76,10 @@ func main() {
 	fmt.Println(addEmployee(1, "Diana", 29, HR))    
 
 	// 2. Search Employees by ID or Name
-	searchEmployee("2")  // 2 is ID
-	searchEmployee("Alice") // Search by Name
-	searchEmployee("David") // David is non existant employee
-
+	searchEmployee("2")  
+	searchEmployee("Alice")
+	searchEmployee("David") 
+	
 	// 3. Counting list of employees by department
 	fmt.Println("\nListing HR Department Employees:")
 	listAndCountByDepartment(HR)
