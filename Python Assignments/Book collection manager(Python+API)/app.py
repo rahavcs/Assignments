@@ -3,17 +3,17 @@ from db import init_db, get_db_connection
 
 app = Flask(__name__)
 
-# Initialize the database
+#initalize database
 init_db()
 
-# Helper function to check if book exists by id
+# checking if book exists with relation to the ID
 def book_exists(book_id):
     conn = get_db_connection()
     book = conn.execute('SELECT * FROM books WHERE id = ?', (book_id,)).fetchone()
     conn.close()
     return book
 
-# POST: Add a new book
+# For adding notebook
 @app.route('/books', methods=['POST'])
 def add_book():
     data = request.get_json()
@@ -25,7 +25,7 @@ def add_book():
     if not title or not author or not published_year or not genre:
         return jsonify({"error": "Invalid data", "message": "All fields are required"}), 400
 
-    # Genre validation
+    
     valid_genres = ["Fiction", "Non-Fiction", "Mystery", "Sci-Fi"]
     if genre not in valid_genres:
         return jsonify({"error": "Invalid genre", "message": "Genre must be one of: Fiction, Non-Fiction, Mystery, Sci-Fi"}), 400
@@ -40,7 +40,7 @@ def add_book():
 
     return jsonify({"message": "Book added successfully", "book_id": book_id}), 201
 
-# GET: Retrieve all books
+# Getting all the books
 @app.route('/books', methods=['GET'])
 def get_books():
     conn = get_db_connection()
@@ -49,7 +49,7 @@ def get_books():
     books_list = [dict(book) for book in books]
     return jsonify(books_list)
 
-# GET: Retrieve a specific book by ID
+# Get all the books by ID
 @app.route('/books/<int:book_id>', methods=['GET'])
 def get_book(book_id):
     book = book_exists(book_id)
@@ -57,7 +57,7 @@ def get_book(book_id):
         return jsonify({"error": "Book not found", "message": "No book exists with the provided ID"}), 404
     return jsonify(dict(book))
 
-# PUT: Update an existing book
+# Updating a book that is currently present
 @app.route('/books/<int:book_id>', methods=['PUT'])
 def update_book(book_id):
     book = book_exists(book_id)
@@ -88,7 +88,7 @@ def update_book(book_id):
 
     return jsonify({"message": "Book updated successfully"})
 
-# DELETE: Delete a book by ID
+# Deleting the book with respect to ID
 @app.route('/books/<int:book_id>', methods=['DELETE'])
 def delete_book(book_id):
     book = book_exists(book_id)
