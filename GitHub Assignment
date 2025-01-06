@@ -1,0 +1,49 @@
+1.Set up the project for version control and push to GitHub=>
+> Create and navigate to your project folder:
+  mkdir sample-project
+  cd sample-project
+
+> Initialize Git:
+  git init
+
+> Link to the GitHub repository:
+  git remote add origin <Your GitHub link>
+
+> Add and commit files:
+  git add .
+  git commit -m "Initial commit"
+
+> Push to GitHub:
+  git push -u origin main
+
+2.Create, push, and manage branches=>
+> Create and switch to a new branch:
+  git checkout -b feature/update-readme
+
+> Add "README.md" and commit:
+  echo "Explain the project in brief." > README.md
+  git add README.md
+  git commit -m "Add README.md"
+
+> Push the branch to GitHub:
+  git push origin feature/update-readme
+
+3.Merge changes into the main branch=>
+> Switch to main:
+  git checkout main
+
+> Pull latest changes:
+  git pull origin main
+
+> Merge the feature branch:
+  git merge feature/update-readme
+
+> Push the merged changes:
+  git push origin main
+
+4.Clean up unused branches=>
+> Delete the local branch:
+  git branch -d feature/update-readme
+
+> Delete the remote branch:
+  git push origin --delete feature/update-readme
