@@ -1,0 +1,15 @@
+{
+  "name": "testing-array-index",
+  "version": "1.0.0",
+  "description": "Testing array index access with error handling",
+  "main": "code.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^29.5.0"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,11 @@
+PS D:\testing-bonus> npx jest
+ PASS  ./code.test.js
+  √ displays user name if API works (4 ms)
+  √ displays error message if API fails                                                                                                                                                                                                       
+  √ displays error message if user data is invalid                                                                                                                                                                                            
+                                                                                                                                                                                                                                              
+Test Suites: 1 passed, 1 total                                                                                                                                                                                                                
+Tests:       3 passed, 3 total                                                                                                                                                                                                                
+Snapshots:   0 total
+Time:        0.55 s
+Ran all test suites.

@@ -1,0 +1,10 @@
+PS D:\testing-04> npx jest
+ PASS  ./code.test.js
+  √ Notification is sent successfully (3 ms)
+  √ Notification failed to send                                                                                                                                                                                              
+                                                                                                                                                                                                                             
+Test Suites: 1 passed, 1 total                                                                                                                                                                                               
+Tests:       2 passed, 2 total                                                                                                                                                                                               
+Snapshots:   0 total
+Time:        0.605 s
+Ran all test suites.

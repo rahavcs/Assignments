@@ -1,0 +1,16 @@
+{
+  "name": "testing-01",
+  "version": "1.0.0",
+  "main": "code.js",
+  "type": "module",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "jest-html-reporter": "^3.0.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

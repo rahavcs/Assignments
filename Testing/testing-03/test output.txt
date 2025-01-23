@@ -1,0 +1,10 @@
+PS D:\testing-03> npx jest
+ PASS  ./code.test.js
+  √ delayedGreeting resolves with correct message (509 ms)
+  √ delayedGreeting respects the delay (1 ms)                                                                                                                                                                                
+                                                                                                                                                                                                                             
+Test Suites: 1 passed, 1 total                                                                                                                                                                                               
+Tests:       2 passed, 2 total                                                                                                                                                                                               
+Snapshots:   0 total
+Time:        1.068 s
+Ran all test suites.

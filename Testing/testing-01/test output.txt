@@ -1,0 +1,23 @@
+PS D:\Testing\testing-01> npx jest
+ PASS  ./code.test.js
+  String Utilities
+    capitalize                                                                                                                                                                                                               
+      √ should capitalize the first letter of the word (2 ms)                                                                                                                                                                
+      √ should return an empty string for an empty input                                                                                                                                                                     
+      √ should return the same single-character word                                                                                                                                                                         
+      √ should capitalize a word with mixed case letters                                                                                                                                                                     
+      √ should return an empty string for null or undefined input (1 ms)                                                                                                                                                     
+    reverseString                                                                                                                                                                                                            
+      √ should reverse a string correctly (1 ms)                                                                                                                                                                             
+      √ should return an empty string when the input is empty                                                                                                                                                                
+      √ should return the same string for a single character                                                                                                                                                                 
+      √ should correctly reverse a palindrome (1 ms)                                                                                                                                                                         
+      √ should correctly reverse a string with special characters (1 ms)                                                                                                                                                     
+      √ should reverse a string with spaces                                                                                                                                                                                  
+      √ should handle long strings correctly (1 ms)                                                                                                                                                                          
+                                                                                                                                                                                                                             
+Test Suites: 1 passed, 1 total                                                                                                                                                                                               
+Tests:       12 passed, 12 total                                                                                                                                                                                             
+Snapshots:   0 total
+Time:        0.526 s
+Ran all test suites.

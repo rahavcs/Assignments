@@ -1,0 +1,12 @@
+PS D:\testing-02> npx jest
+ PASS  ./code.test.js
+  getElement function
+    √ returns the element at a valid index (3 ms)
+    √ throws error for a negative index (7 ms)
+    √ throws error for an out of range index
+
+Test Suites: 1 passed, 1 total
+Tests:       3 passed, 3 total
+Snapshots:   0 total
+Time:        0.643 s
+Ran all test suites.

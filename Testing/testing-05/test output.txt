@@ -1,0 +1,10 @@
+PS D:\testing-05> npx jest
+ PASS  ./code.test.js
+  √ should hide element when it is visible (3 ms)
+  √ should show element when it is hidden (1 ms)                                                                                                                                                                                              
+                                                                                                                                                                                                                                              
+Test Suites: 1 passed, 1 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        0.534 s, estimated 1 s
+Ran all test suites.
