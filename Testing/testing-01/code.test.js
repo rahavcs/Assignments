@@ -1,4 +1,3 @@
-// test.js
 const { capitalize, reverseString } = require('./code');
 
 describe('String Utilities', () => {
