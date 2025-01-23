@@ -1,5 +1,3 @@
-// code.js
-
 // Capitalize the first letter of the string
 function capitalize(word) {
     if (!word) return "";
