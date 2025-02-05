@@ -1,0 +1,37 @@
+Started by user CS Rahav
+
+Running as SYSTEM
+Building in workspace C:\ProgramData\Jenkins\.jenkins\workspace\flask_app_deployment
+The recommended git tool is: NONE
+No credentials specified
+ > C:\Program Files\Git\cmd\git.exe rev-parse --resolve-git-dir C:\ProgramData\Jenkins\.jenkins\workspace\flask_app_deployment\.git # timeout=10
+Fetching changes from the remote Git repository
+ > C:\Program Files\Git\cmd\git.exe config remote.origin.url https://github.com/rahavcs/Jenkins.git # timeout=10
+Fetching upstream changes from https://github.com/rahavcs/Jenkins.git
+ > C:\Program Files\Git\cmd\git.exe --version # timeout=10
+ > git --version # 'git version 2.46.1.windows.1'
+ > C:\Program Files\Git\cmd\git.exe fetch --tags --force --progress -- https://github.com/rahavcs/Jenkins.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > C:\Program Files\Git\cmd\git.exe rev-parse "refs/remotes/origin/main^{commit}" # timeout=10
+Checking out Revision 5a2e9d0289a4d945074ec96b149f1c7bc9ccf38b (refs/remotes/origin/main)
+ > C:\Program Files\Git\cmd\git.exe config core.sparsecheckout # timeout=10
+ > C:\Program Files\Git\cmd\git.exe checkout -f 5a2e9d0289a4d945074ec96b149f1c7bc9ccf38b # timeout=10
+Commit message: "Create requirements.txt"
+ > C:\Program Files\Git\cmd\git.exe rev-list --no-walk 3a537559ecef02dce07ff9b0e5b2fa7a57366290 # timeout=10
+[flask_app_deployment] $ cmd /c call C:\WINDOWS\TEMP\jenkins18356857483247566057.bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\flask_app_deployment>python -m venv venv
+The virtual environment was successfully created.
+
+C:\ProgramData\Jenkins\.jenkins\workspace\flask_app_deployment>.\venv\Scripts\activate
+(venv) C:\ProgramData\Jenkins\.jenkins\workspace\flask_app_deployment>pip install -r requirements.txt
+Collecting flask
+  Downloading Flask-2.0.1-py3-none-any.whl (94 kB)
+     |████████████████████████████████| 94 kB 2.2 MB/s eta 0:00:01
+Successfully installed flask-2.0.1
+
+C:\ProgramData\Jenkins\.jenkins\workspace\flask_app_deployment>(venv) C:\ProgramData\Jenkins\.jenkins\workspace\flask_app_deployment>python app.py
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+Server started successfully on http://127.0.0.1:5000
+
+Build step 'Execute Windows batch command' succeeded
+Finished: SUCCESS

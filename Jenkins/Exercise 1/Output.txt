@@ -1,0 +1,13 @@
+Started by user CS Rahav
+
+Running as SYSTEM
+Building in workspace C:\ProgramData\Jenkins\.jenkins\workspace\fileTransferJob
+[fileTransferJob] $ cmd /c call C:\WINDOWS\TEMP\jenkins6821649177268380223.bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\fileTransferJob>xcopy "C:\source" "C:\target" /E /I /H /Y 
+C:\source\file1.txt
+C:\source\file2.txt
+2 File(s) copied
+
+C:\ProgramData\Jenkins\.jenkins\workspace\fileTransferJob>exit 0 
+Finished: SUCCESS

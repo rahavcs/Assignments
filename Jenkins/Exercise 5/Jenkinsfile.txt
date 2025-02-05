@@ -1,0 +1,65 @@
+pipeline {
+    agent any
+    environment {
+        GIT_REPO = 'https://github.com/rahavcs/Jenkins.git'
+        BRANCH_NAME = 'main'
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                echo "Fetching changes from the remote Git repository"
+                git url: "${GIT_REPO}", branch: "${BRANCH_NAME}"
+            }
+        }
+
+        stage('Setup Virtual Environment') {
+            steps {
+                echo "Creating virtual environment"
+                bat 'python -m venv venv'
+                bat '.\\venv\\Scripts\\activate'
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                echo "Installing dependencies"
+                bat '.\\venv\\Scripts\\pip install -r requirements.txt'
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                echo "Running tests"
+                bat '.\\venv\\Scripts\\pytest'
+            }
+        }
+
+        stage('Start Gunicorn') {
+            steps {
+                echo "Starting Gunicorn"
+                bat '.\\venv\\Scripts\\gunicorn -b 127.0.0.1:8000 app:app'
+            }
+        }
+
+        stage('Test Deployment') {
+            steps {
+                echo "Testing deployment"
+                bat 'curl http://127.0.0.1:8000'
+            }
+        }
+
+        stage('Finish') {
+            steps {
+                echo "Flask app deployed and accessible!"
+            }
+        }
+    }
+    post {
+        success {
+            echo 'Build succeeded'
+        }
+        failure {
+            echo 'Build failed'
+        }
+    }
+}

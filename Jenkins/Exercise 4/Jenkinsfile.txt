@@ -1,0 +1,65 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Checkout SCM') {
+            steps {
+                git branch: 'main', 
+                    url: 'https://github.com/rahavcs/Go-Nexturn-Assignments.git'
+            }
+        }
+        
+        stage('Install Dependencies') {
+            steps {
+                dir('D:\\react app') {
+                    bat 'npm install'
+                }
+            }
+        }
+        
+        stage('Lint') {
+            steps {
+                dir('D:\\react app') {
+                    bat 'npm run lint'
+                }
+            }
+        }
+        
+        stage('Test') {
+            steps {
+                dir('D:\\react app') {
+                    bat 'npm test'
+                }
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                dir('D:\\react app') {
+                    bat 'npm run build'
+                }
+            }
+        }
+        
+        stage('Deploy') {
+            steps {
+                dir('D:\\react app') {
+                    bat 'xcopy /E /I build\\* D:\\deployment\\react-app'
+                }
+            }
+        }
+        
+        stage('Post-Deployment Actions') {
+            steps {
+                echo 'Build and deployment successful!'
+            }
+        }
+    }
+    
+    post {
+        success {
+            echo 'Build and deployment successful!'
+        }
+    }
+}
+

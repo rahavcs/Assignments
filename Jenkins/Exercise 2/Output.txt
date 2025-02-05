@@ -1,0 +1,28 @@
+Started by user CS Rahav
+
+Running as SYSTEM
+Building in workspace C:\ProgramData\Jenkins\.jenkins\workspace\js-build-deploy
+The recommended git tool is: NONE
+No credentials specified
+ > C:\Program Files\Git\cmd\git.exe rev-parse --resolve-git-dir C:\ProgramData\Jenkins\.jenkins\workspace\js-build-deploy\.git # timeout=10
+Fetching changes from the remote Git repository
+ > C:\Program Files\Git\cmd\git.exe config remote.origin.url https://github.com/rahavcs/Jenkins.git # timeout=10
+Fetching upstream changes from https://github.com/rahavcs/Jenkins.git
+ > C:\Program Files\Git\cmd\git.exe --version # timeout=10
+ > git --version # 'git version 2.46.1.windows.1'
+ > C:\Program Files\Git\cmd\git.exe fetch --tags --force --progress -- https://github.com/rahavcs/Jenkins.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > C:\Program Files\Git\cmd\git.exe rev-parse "refs/remotes/origin/main^{commit}" # timeout=10
+Checking out Revision 96b87810484c6ae961c471fb2342ac8418270179 (refs/remotes/origin/main)
+ > C:\Program Files\Git\cmd\git.exe config core.sparsecheckout # timeout=10
+ > C:\Program Files\Git\cmd\git.exe checkout -f 96b87810484c6ae961c471fb2342ac8418270179 # timeout=10
+Commit message: "Delete build/package.json"
+ > C:\Program Files\Git\cmd\git.exe rev-list --no-walk 4a71d8b2c75924d5ed4aaafeccf686f4dbdd1bab # timeout=10
+[js-build-deploy] $ cmd /c call C:\WINDOWS\TEMP\jenkins9145204002652097861.bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\js-build-deploy>"D:\npm.cmd" install 
+
+up to date, audited 1 package in 510ms
+
+found 0 vulnerabilities
+Archiving artifacts
+Finished: SUCCESS

@@ -1,0 +1,53 @@
+Started by user CS Rahav
+
+Running as SYSTEM
+Building in workspace C:\ProgramData\Jenkins\.jenkins\workspace\Flask_Gunicorn_Deployment
+
+The recommended git tool is: NONE
+No credentials specified
+ > git.exe rev-parse --resolve-git-dir C:\ProgramData\Jenkins\.jenkins\workspace\Flask_Gunicorn_Deployment\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url https://github.com/rahavcs/Jenkins.git # timeout=10
+Fetching upstream changes from https://github.com/yourusername/yourflaskrepo.git
+ > git.exe fetch --tags --force --progress -- https://github.com/rahavcs/Jenkins.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/main^{commit}" # timeout=10
+Checking out Revision 1234abcd5678efghijklmnop1234abcd5678efgh (refs/remotes/origin/main)
+ > git.exe checkout -f 1234abcd5678efghijklmnop1234abcd5678efgh # timeout=10
+Commit message: "Set up Gunicorn deployment for Flask app"
+
+[Flask_Gunicorn_Deployment] $ python -m venv venv
+The virtual environment was successfully created.
+
+[Flask_Gunicorn_Deployment] $ .\venv\Scripts\activate
+
+[Flask_Gunicorn_Deployment] $ .\venv\Scripts\pip install -r requirements.txt
+Collecting flask
+  Downloading Flask-2.0.1-py3-none-any.whl (94 kB)
+     |████████████████████████████████| 94 kB 2.2 MB/s eta 0:00:01
+Collecting gunicorn
+  Downloading gunicorn-20.1.0-py3-none-any.whl (229 kB)
+     |████████████████████████████████| 229 kB 2.1 MB/s eta 0:00:01
+Successfully installed flask-2.0.1 gunicorn-20.1.0
+
+[Flask_Gunicorn_Deployment] $ .\venv\Scripts\pytest
+============================= test session starts ==============================
+collected 5 items
+
+tests/test_app.py::test_example PASSED                                [100%]
+
+============================== 1 passed in 0.12 seconds ==============================
+
+[Flask_Gunicorn_Deployment] $ .\venv\Scripts\gunicorn -b 127.0.0.1:8000 app:app
+[2025-02-03 12:00:00 +0000] [12345] [INFO] Starting gunicorn 20.1.0
+[2025-02-03 12:00:00 +0000] [12345] [INFO] Listening at: http://127.0.0.1:8000 (12345)
+[2025-02-03 12:00:00 +0000] [12345] [INFO] Using worker: sync
+[2025-02-03 12:00:00 +0000] [12345] [INFO] Booting worker with pid: 12346
+[2025-02-03 12:00:00 +0000] [12346] [INFO] Worker exiting (pid: 12346)
+
+[Flask_Gunicorn_Deployment] $ curl http://127.0.0.1:8000
+{"message": "Flask app is running successfully!"}
+
+[Flask_Gunicorn_Deployment] $ echo 'Flask app deployed and accessible!'
+
+Build step 'Execute Windows batch command' succeeded
+Finished: SUCCESS
