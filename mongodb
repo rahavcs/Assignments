@@ -1,0 +1,134 @@
+1.Find High-Spending Users:
+
+javascriptCopydb.orders.aggregate([
+  {
+    $group: {
+      _id: "$userId",
+      totalSpent: { $sum: "$totalAmount" }
+    }
+  },
+  {
+    $match: {
+      totalSpent: { $gt: 500 }
+    }
+  },
+  {
+    $lookup: {
+      from: "users",
+      localField: "_id",
+      foreignField: "userId",
+      as: "userDetails"
+    }
+  },
+  {
+    $unwind: "$userDetails"
+  },
+  {
+    $project: {
+      name: "$userDetails.name",
+      email: "$userDetails.email",
+      totalSpent: 1
+    }
+  }
+])
+
+2.Popular Products by Average Rating:
+
+javascriptCopydb.products.aggregate([
+  {
+    $unwind: "$ratings"
+  },
+  {
+    $group: {
+      _id: {
+        productId: "$productId",
+        name: "$name"
+      },
+      averageRating: { $avg: "$ratings.rating" }
+    }
+  },
+  {
+    $match: {
+      averageRating: { $gte: 4 }
+    }
+  },
+  {
+    $project: {
+      productName: "$_id.name",
+      productId: "$_id.productId",
+      averageRating: 1,
+      _id: 0
+    }
+  }
+])
+
+3.Orders in Specific Time Range:
+
+javascriptCopydb.orders.aggregate([
+  {
+    $match: {
+      orderDate: {
+        $gte: ISODate("2024-12-01T00:00:00Z"),
+        $lte: ISODate("2024-12-31T23:59:59Z")
+      }
+    }
+  },
+  {
+    $lookup: {
+      from: "users",
+      localField: "userId",
+      foreignField: "userId",
+      as: "userDetails"
+    }
+  },
+  {
+    $unwind: "$userDetails"
+  },
+  {
+    $project: {
+      orderId: 1,
+      orderDate: 1,
+      totalAmount: 1,
+      "userName": "$userDetails.name",
+      items: 1
+    }
+  }
+])
+
+4.Update Stock After Order:
+
+javascriptCopy// This should be run in a transaction for production use
+db.orders.find({ orderId: "ORD001" }).forEach(order => {
+  order.items.forEach(item => {
+    db.products.updateOne(
+      { productId: item.productId },
+      { $inc: { stock: -item.quantity } }
+    );
+  });
+});
+
+5.Find Nearest Warehouse:
+
+javascriptCopydb.warehouses.aggregate([
+  {
+    $geoNear: {
+      near: {
+        type: "Point",
+        coordinates: [-74.006, 40.7128] // Example coordinates
+      },
+      distanceField: "distance",
+      maxDistance: 50000, // 50km in meters
+      spherical: true,
+      query: {
+        products: "P001"
+      }
+    }
+  },
+  {
+    $project: {
+      warehouseId: 1,
+      distance: 1,
+      products: 1
+    }
+  }
+])
