@@ -1,0 +1,32 @@
+Q1. Write a query to find employees hired after January 1, 2021:
+ANS:SELECT Name
+    FROM Employees
+    WHERE HireDate > '2021-01-01';
+
+Q2. Calculate average salary by department:
+ANS:SELECT d.DepartmentName, AVG(e.Salary) as AverageSalary
+    FROM Employees e
+    JOIN Departments d ON e.DepartmentID = d.DepartmentID
+    GROUP BY d.DepartmentName;
+
+Q3. Find department with highest total salary:
+ANS:SELECT d.DepartmentName, SUM(e.Salary) as TotalSalary
+    FROM Employees e
+    JOIN Departments d ON e.DepartmentID = d.DepartmentID
+    GROUP BY d.DepartmentName
+    ORDER BY TotalSalary DESC
+    LIMIT 1;
+
+Q4. List departments with no assigned employees:
+ANS:SELECT DepartmentName
+    FROM Departments d
+    WHERE NOT EXISTS (
+    SELECT 1 
+    FROM Employees e 
+    WHERE e.DepartmentID = d.DepartmentID
+    );
+
+Q5. Show employee details with their department names:
+ANS:SELECT e.Name, e.Salary, e.HireDate, d.DepartmentName
+    FROM Employees e
+    JOIN Departments d ON e.DepartmentID = d.DepartmentID;
