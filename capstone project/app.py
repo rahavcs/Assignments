@@ -3,7 +3,6 @@ import sqlite3
 
 app = Flask(__name__)
 
-# Initialize SQLite Database
 def init_db():
     conn = sqlite3.connect("users.db")
     cursor = conn.cursor()
@@ -16,7 +15,6 @@ def init_db():
 
 init_db()
 
-# Serve HTML UI
 @app.route('/')
 def index():
     return render_template_string('''
@@ -158,7 +156,6 @@ def index():
     </html>
     ''')
 
-# Add a new user
 @app.route('/users', methods=['POST'])
 def add_user():
     data = request.get_json()
@@ -169,7 +166,6 @@ def add_user():
     conn.close()
     return jsonify({"message": "User added successfully"}), 201
 
-# Retrieve all users
 @app.route('/users', methods=['GET'])
 def get_users():
     conn = sqlite3.connect("users.db")
@@ -179,7 +175,6 @@ def get_users():
     conn.close()
     return jsonify(users)
 
-# Retrieve a specific user
 @app.route('/users/<int:id>', methods=['GET'])
 def get_user(id):
     conn = sqlite3.connect("users.db")
@@ -191,7 +186,6 @@ def get_user(id):
         return jsonify(user)
     return jsonify({"error": "User not found"}), 404
 
-# Update a user
 @app.route('/users/<int:id>', methods=['PUT'])
 def update_user(id):
     data = request.get_json()
@@ -202,7 +196,6 @@ def update_user(id):
     conn.close()
     return jsonify({"message": "User updated successfully"})
 
-# Delete a user
 @app.route('/users/<int:id>', methods=['DELETE'])
 def delete_user(id):
     conn = sqlite3.connect("users.db")
