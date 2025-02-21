@@ -1,0 +1,68 @@
+Exercise 1: Create and Configure a Virtual Machine:
+-Log in to Azure Portal > Go to Virtual Machines > Click Create.
+
+-Select Ubuntu Server 20.04 LTS, choose Standard_B1s, and set SSH authentication.
+
+-Allow SSH (port 22) > Deploy VM > Connect via SSH.
+
+-Follow the same steps, selecting Windows Server 2022.
+
+-Set Username & Password authentication and allow RDP (port 3389).
+
+-Deploy VM > Connect using Remote Desktop Protocol (RDP).
+
+-Install IIS (Add-WindowsFeature -name Web-Server).
+
+-Verify by accessing the VM’s public IP in a browser.
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Exercise 2: Deploy a Static Web Application:
+-Go to Azure Portal > App Services > Click Create.
+
+-Choose Python 3.10, Windows, and a region near you.
+
+-Deploy App Service > Upload index.html and CSS via FTP/Kudu Console.
+
+-Verify the deployment via the public App Service URL.
+
+-Edit index.html to display "Welcome to Azure Static Web Apps!".
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Exercise 3: Deploy a Flask Application:
+-Create Flask App
+
+-Push code to GitHub.
+
+-In Azure Portal, go to App Services > Click Create.
+
+-Choose Python 3.10, Connect GitHub Repo, and deploy.
+
+-Verify the app via its public URL.
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Exercise 4: Set Up and Use an Azure SQL Database:
+-Go to SQL Databases > Click Create.
+
+-Set Database Name: StudentDB, create a new server with username & password.
+
+-Use Free Tier, deploy the database.
+
+-Connect using Azure Data Studio or SQL Server Management Studio (SSMS).
+
+-Create a Students table (ID, Name, Age) and insert sample data.
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Exercise 5: Integrate Flask App with Azure SQL Database
+-Use the Flask app from Exercise 3.
+
+-Add a Flask route to fetch data from the Students table.
+
+-Deploy the updated app to Azure App Service.
+
+-Verify CRUD operations via the app’s public URL. 
+
+
