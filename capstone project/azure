@@ -1,0 +1,9 @@
+- Create an Azure Web App with Python runtime to host the Flask REST API.  
+
+- Configure Azure Web App settings like environment variables and runtime.  
+
+- Push the Flask app to GitHub with all dependencies (`requirements.txt`, `Procfile`).  
+
+- Deploy the Flask API to Azure directly from GitHub or using Azure CLI. 
+
+- Test the deployed API using the Azure URL to check if CRUD operations work. 
